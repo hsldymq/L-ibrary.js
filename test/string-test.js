@@ -70,3 +70,9 @@ QUnit.test('测试htmlSpecialCharsDecode方法', function (assert) {
 
     assert.strictEqual(L.htmlSpecialCharsDecode('&#61;&gt;&3d;'), '&#61;>&3d;', '其余实体不应被转义')
 });
+
+QUnit.test('测试ucFirst方法', function (assert) {
+    assert.strictEqual(L.ucFirst('abc d'), 'Abc d', '"abc d" -> "Abc d"');
+    assert.strictEqual(L.ucFirst(' asdf'), ' asdf', '头部带空格不转换大写');
+    assert.strictEqual(L.ucFirst('#abc'), '#abc', '不转换非字母');
+});

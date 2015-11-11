@@ -185,6 +185,7 @@
             }
         }
 
+        var i, length;
         var matchCollection = [];
         var regExps = {
             'hex': /^#([0-9a-f]{3}|[0-9a-f]{6})$/i,
@@ -194,7 +195,7 @@
             'hsla': /^hsla\(\s*(?:3(?:60|[0-5]\d)|[12]\d{2}|[1-9]?\d)(?:\s*,\s*(?:(?:100(?:\.0)?|[1-9]?\d)(?:\.\d)?)%){2}(?:\s*,\s*(?:0|1(?:\.0)?|0?\.\d))?\s*\)$/
         };
 
-        for (var i = 0; i < type.length; i++) {
+        for (i = 0, length = type.length; i < length; i++) {
             var typeName = type[i];
             matchCollection.push(
                 _.has(typeName, regExps) ?
@@ -438,6 +439,21 @@
             }
         });
     };
+
+    /**
+     * 字符串首字母大写
+     * @param {string} str
+     * @returns {*}
+     */
+    _.ucFirst = function (str) {
+        if ( ! _.isString(str)) {
+            return str;
+        }
+
+        return str.replace(/^[a-z]/, function (match) {
+            return match.toUpperCase();
+        });
+    }
 
 
     /***************************************************/
